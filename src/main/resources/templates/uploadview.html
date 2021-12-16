@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Uploader of Files</title>
+</head>
+<div>
+    <form th:action="upload" method="post" enctype="multipart/form-data" >
+        <input type="file" name="files" multiple>
+        <input type="submit" value="upload files">
+        
+    </form>
+
+</div>
+</body>
+</html>
