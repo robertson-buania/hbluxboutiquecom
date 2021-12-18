@@ -8,8 +8,6 @@ import com.buania.buanialaxtechhblux.commande.Commande;
 import com.buania.buanialaxtechhblux.commande.CommandeRepository;
 import com.buania.buanialaxtechhblux.hbluxclient.Clienthblux;
 import com.buania.buanialaxtechhblux.hbluxclient.ClienthbluxRepository;
-import com.buania.buanialaxtechhblux.livraison.Livraison;
-import com.buania.buanialaxtechhblux.livraison.LivraisonRepository;
 import com.buania.buanialaxtechhblux.article.ArticleRepository;
 import com.buania.buanialaxtechhblux.hbevent.HbEventsRepository;
 import com.buania.buanialaxtechhblux.hbevent.Hbevent;
@@ -45,8 +43,7 @@ public class BuanialaxtechhbluxApplication  {
     ClienthbluxRepository clienthbluxRepository;
     @Autowired
     CommandeRepository commandeRepository ;
-    @Autowired
-    LivraisonRepository livraisonRepository;
+
     @Autowired
     ReservationRepository reservationRepository;
     @Autowired
@@ -111,14 +108,14 @@ public class BuanialaxtechhbluxApplication  {
             addArticleCommandee();
             addClient();
             addCommande();
-            addLivraison();
+            
             addReservation();
 
             addArticleToCommande();
             addArticleToReservation();
             addCommandeToClient();
             addReservationToClient();
-            addLivraisonToCommande();
+            
 
 
 
@@ -354,18 +351,7 @@ public class BuanialaxtechhbluxApplication  {
 
         }
     }
-    public void addLivraison(){
-        for (long i = 0; i < 5; i++) {
-            Livraison livraison=new Livraison();
-            livraison.setNumero("HBLUX"+i+"2020");
-            livraison.setPays("France");
-            livraison.setReference(RandomString.make(10));
-            livraison.setRue(RandomString.make(10));
-            livraison.setVille(RandomString.make(10));
-            livraisonRepository.save(livraison);
 
-        }
-    }
 
     public void addArticleToCommande(){
         long k=0;long id1=1;
@@ -444,16 +430,7 @@ public class BuanialaxtechhbluxApplication  {
         System.out.println("Reservation to client !");
     }
 
-    public void addLivraisonToCommande(){
-        for (long i = 0; i < commandeRepository.findAll().size(); i++) {
-            Commande commande=commandeRepository.findById(i+1).get();
-            Livraison livraison=livraisonRepository.findById(i+1).get();
-            commande.setLivraison(livraison);
-            commandeRepository.save(commande);
-        }
-        System.out.println("Commande Livrée Livraison terminé");
-    }
-
+    
     /*
     IntStream.rangeClosed(1,30).forEach(i->{
             Article article =new Article();

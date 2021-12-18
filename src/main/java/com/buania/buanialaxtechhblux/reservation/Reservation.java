@@ -21,7 +21,7 @@ public class Reservation implements Serializable {
     private Long id;
     private LocalDate dateReservation;
     private LocalDate dateFacturation;
-    @Column(length = 10)
+    @Column(length = 30)
     private String cote;
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "reservation")
     private Set<ArticleCommandee> articleCommandees =new HashSet<>();

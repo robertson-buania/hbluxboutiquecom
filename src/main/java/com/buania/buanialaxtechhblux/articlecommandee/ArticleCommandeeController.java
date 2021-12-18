@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.ArrayList;
 @RestController
 @RequestMapping("articlecommandee")
 @CrossOrigin("*")
@@ -17,19 +17,21 @@ public class ArticleCommandeeController {
         return articleCommandeeRepository.findAll();
     }
 
-    @PostMapping("new")
+    @PostMapping("newOne")
     public ArticleCommandee createArticleCommandee(@RequestBody ArticleCommandee article){
         return articleCommandeeRepository.save(article);
     }
 
-    @PutMapping("edit")
-    public ArticleCommandee updateArticle(@RequestBody ArticleCommandee articleUpdate){
-        ArticleCommandee articleCommandee=articleCommandeeRepository.findById(articleUpdate.getId()).get();
-             articleCommandee.setNomArticle(articleUpdate.getNomArticle());
-             articleCommandee.setPrix(articleUpdate.getPrix());
-             articleCommandee.setQuantite(articleCommandee.getQuantite());
 
-        return articleCommandeeRepository.save(articleCommandee);
+    @PostMapping("new")
+    public   List <ArticleCommandee> createArticleCommandee(@RequestBody List <ArticleCommandee> articles){
+        List <ArticleCommandee> artCom = new ArrayList<ArticleCommandee>();
+        artCom.forEach( article-> {
+            artCom.add(articleCommandeeRepository.save(article));
+        });
+        return artCom;
     }
+
+  
 
 }

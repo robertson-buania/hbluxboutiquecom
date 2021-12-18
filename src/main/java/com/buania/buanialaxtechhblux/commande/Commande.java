@@ -2,8 +2,8 @@ package com.buania.buanialaxtechhblux.commande;
 
 import com.buania.buanialaxtechhblux.articlecommandee.ArticleCommandee;
 import com.buania.buanialaxtechhblux.hbluxclient.Clienthblux;
-import com.buania.buanialaxtechhblux.livraison.Livraison;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -24,7 +24,7 @@ public class Commande implements Serializable {
     private Long id;
     private LocalDate dateCommande;
     private LocalDate dateLivraison;
-    @Column(length = 10)
+    @Column(length = 30)
     private String cote;
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "commande")
     private Set<ArticleCommandee> articleCommandees =new HashSet<>();
@@ -32,14 +32,10 @@ public class Commande implements Serializable {
     @JoinColumn(
             name = "clienthblux_id",referencedColumnName = "id"
     )
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Clienthblux clienthblux;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(
-            name = "livraison_id",referencedColumnName = "id"
-    )
-    private Livraison livraison;
+    private String livraison;
 
     public LocalDate getDateLivraison() {
         return dateLivraison;
@@ -89,11 +85,11 @@ public class Commande implements Serializable {
         this.clienthblux = clienthblux;
     }
 
-    public Livraison getLivraison() {
+    public String getLivraison() {
         return livraison;
     }
 
-    public void setLivraison(Livraison livraison) {
+    public void setLivraison(String livraison) {
         this.livraison = livraison;
     }
 }

@@ -6,8 +6,6 @@ import com.buania.buanialaxtechhblux.commande.Commande;
 import com.buania.buanialaxtechhblux.commande.CommandeRepository;
 import com.buania.buanialaxtechhblux.hbluxclient.Clienthblux;
 import com.buania.buanialaxtechhblux.hbluxclient.ClienthbluxRepository;
-import com.buania.buanialaxtechhblux.livraison.Livraison;
-import com.buania.buanialaxtechhblux.livraison.LivraisonRepository;
 import com.buania.buanialaxtechhblux.reservation.Reservation;
 import com.buania.buanialaxtechhblux.reservation.ReservationRepository;
 import com.buania.buanialaxtechhblux.services.HBLuxServices;
@@ -23,8 +21,6 @@ public class HbluxController {
     @Autowired
     ClienthbluxRepository clienthbluxRepository;
 
-    @Autowired
-    LivraisonRepository livraisonRepository;
     @Autowired
     ReservationRepository reservationRepository;
     @Autowired
@@ -45,10 +41,6 @@ public class HbluxController {
         return clienthbluxRepository.findAll();
     }
 
-    @GetMapping("alllivraisons")
-    public List<Livraison> getAllLivraison(){
-        return livraisonRepository.findAll();
-    }
 
     @GetMapping("allresevations")
     public List<Reservation> getAllReservations(){

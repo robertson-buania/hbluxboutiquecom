@@ -28,12 +28,22 @@ public class Clienthblux implements Serializable {
     private String motDePasse;
     @Column(length = 12)
     private String sexe;
+    
+    private String adresse;
     private LocalDate dateNaissance;
     @OneToMany(mappedBy = "clienthblux")
     private Set<Reservation> reservations =new HashSet<>();
 
     @OneToMany(mappedBy = "clienthblux")
     private Set<Commande> commandes =new HashSet<>();
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setId(String adresse) {
+        this.adresse = adresse;
+    }
 
     public Long getId() {
         return id;
@@ -42,7 +52,6 @@ public class Clienthblux implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getPrenom() {
         return prenom;
     }
