@@ -32,7 +32,7 @@ public class Commande implements Serializable {
     @JoinColumn(
             name = "clienthblux_id",referencedColumnName = "id"
     )
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonIgnore
     private Clienthblux clienthblux;
 
     private String livraison;
