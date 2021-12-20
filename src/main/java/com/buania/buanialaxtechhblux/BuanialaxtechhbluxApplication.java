@@ -89,7 +89,7 @@ public static void main(String[] args) {
     @Bean
     CommandLineRunner start (){
         return args -> {
-            initHblux();
+           // initHblux();
             System.out.println("L'application a demarrée avec succès");
         };
 
