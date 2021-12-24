@@ -1,10 +1,8 @@
 package com.buania.buanialaxtechhblux.paiement;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 
 import com.google.gson.Gson;
 import com.stripe.Stripe;
@@ -14,6 +12,7 @@ import com.stripe.param.checkout.SessionCreateParams;
 
 @RestController
 @RequestMapping(value = "/hblux")
+@CrossOrigin("*")
 public class StripeController {
     // create a Gson object
     private static Gson gson = new Gson();
@@ -21,7 +20,6 @@ public class StripeController {
     @PostMapping("/payment")
     /**
      Paiement avec stripe
-
      */
     public String paymentWithCheckoutPage(@RequestBody CheckoutPayment payment) throws StripeException {
         // We initilize stripe object with the api key
