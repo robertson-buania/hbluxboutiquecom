@@ -11,7 +11,7 @@ import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 
 @RestController
-@RequestMapping(value = "/hblux")
+@RequestMapping(value = "/api")
 @CrossOrigin("*")
 public class StripeController {
     // create a Gson object
