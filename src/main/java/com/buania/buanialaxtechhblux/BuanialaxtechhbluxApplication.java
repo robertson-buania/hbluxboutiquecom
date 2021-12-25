@@ -157,9 +157,9 @@ public static void main(String[] args) {
         article.setPrix(45+0.0);
         article.setNom("Ensemble Jogging");
         article.setDescription("Sweat en molleton de coton mélangé. Coupe décontractée avec capuche doublée resserrable par cordon, manches longues et poche kangourou." +
-                " Finition bord-côte aux poignets et à la base. Intérieur doux et brossé.\n " +
-                "\n\n Composition de la couche extérieure:Coton 60%,Polyster 40%\n \n" +
-                "\n\nDoublure de capuche:Coton 60%, Poluster 40%\n" +
+                " Finition bord-côte aux poignets et à la base. Intérieur doux et brossé. " +
+                "Composition de la couche extérieure:Coton 60%,Polyster 40%" +
+                "Doublure de capuche:Coton 60%, Poluster 40%" +
                 "");
         article.setType("enfant");
         article.setDisponible(true);
@@ -202,7 +202,17 @@ public static void main(String[] args) {
     }
 
     public void addClient(){
-        for (int i = 0; i < 3; i++) {
+        Clienthblux clienthblux=new Clienthblux();
+        String nom ="Bénévole";
+        String prenom="Bénévole";
+        clienthblux.setNom(nom);
+        clienthblux.setPrenom(prenom);
+        clienthblux.setEmail(nom+prenom+"@hblux.fr");
+        if((i/2)==0) clienthblux.setSexe("masculin");
+        else  clienthblux.setSexe("feminin");
+        clienthblux.setMotDePasse(nom);
+        clienthbluxRepository.save(clienthblux);
+        for (int i = 0; i < 2; i++) {
             Clienthblux clienthblux=new Clienthblux();
             String nom =RandomString.make(10);
             String prenom=RandomString.make(10);
