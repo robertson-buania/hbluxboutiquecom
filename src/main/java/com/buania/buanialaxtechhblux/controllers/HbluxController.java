@@ -117,9 +117,6 @@ public class HbluxController {
 
         System.out.println("******************************************************");
         System.out.println("************ HB EVENT **************");
-
-        System.out.println("******************************************************");
-        System.out.println("************** HB MEDIA ****************");
         addMedia();
         System.out.println("Empilement !");
         empilerMediaDansArticler();
