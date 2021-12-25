@@ -202,16 +202,15 @@ public static void main(String[] args) {
     }
 
     public void addClient(){
-        Clienthblux clienthblux=new Clienthblux();
-        String nom ="Bénévole";
-        String prenom="Bénévole";
-        clienthblux.setNom(nom);
-        clienthblux.setPrenom(prenom);
-        clienthblux.setEmail(nom+prenom+"@hblux.fr");
-        if((i/2)==0) clienthblux.setSexe("masculin");
-        else  clienthblux.setSexe("feminin");
-        clienthblux.setMotDePasse(nom);
-        clienthbluxRepository.save(clienthblux);
+        Clienthblux clienthbluxx=new Clienthblux();
+        String nomx ="Bénévole";
+        String prenomx="Bénévole";
+        clienthbluxx.setNom(nomx);
+        clienthbluxx.setPrenom(prenomx);
+        clienthbluxx.setEmail(nomx+prenomx+"@hblux.fr");
+         clienthbluxx.setSexe("enfant");
+        clienthbluxx.setMotDePasse(nomx);
+        clienthbluxRepository.save(clienthbluxx);
         for (int i = 0; i < 2; i++) {
             Clienthblux clienthblux=new Clienthblux();
             String nom =RandomString.make(10);
